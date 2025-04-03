@@ -5,11 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bank Client Prediction</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='bank_data_form.css') }}">
+   
 </head>
 <body>
     <div class="container">
         <h2>Bank Client Form</h2>
-        <form method="post" action="predict">
+
+        <form method="post" action="/predict">
+           
+           <div>
             <label for="age">Age:</label>
             <input type="number" id="age" name="age" required>
 
@@ -40,7 +44,9 @@
                 <option value="unknown">Unknown</option>
                 <option value="illiterate">Illiterate</option>
             </select>
-
+           </div>
+           
+           <div>
             <label for="default">Credit in Default:</label>
             <select id="default" name="default">
                 <option value="no">No</option>
@@ -61,9 +67,10 @@
                 <option value="yes">Yes</option>
                 <option value="unknown">Unknown</option>
             </select>
+           </div>
 
             <button type="submit">Predict Outcome</button>
         </form>
     </div>
-</body>
+</body>  
 </html>
