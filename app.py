@@ -37,11 +37,13 @@ def customer_details():
     manual_input[numerical_features] = manual_input[numerical_features].fillna(0)
     manual_input[categorical_features] = manual_input[categorical_features].fillna('unknown')
 
+
     manual_transformed = preprocessor.transform(manual_input)
     prediction = svm_model.predict(manual_transformed)
     
     # return the predicted output as a response
     return render_template('dashboard.html', predict=prediction[0])
+
 
 if __name__ == '__main__':
     app.run(host="0.0.0.0", port=80)
