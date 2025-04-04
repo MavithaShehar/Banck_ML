@@ -8,7 +8,7 @@ warnings.filterwarnings('ignore')
 # Load preprocessor and model
 preprocessor = joblib.load("preprocessor.pkl")
 svm_model = joblib.load("svm_model.pkl")
-
+ir_model = joblib.load("lr_model.pkl")
 app = Flask(__name__)
 
 # Define categorical and numerical columns
@@ -39,10 +39,15 @@ def customer_details():
 
 
     manual_transformed = preprocessor.transform(manual_input)
-    prediction = svm_model.predict(manual_transformed)
+    prediction1 = ir_model.predict(manual_transformed)
+    prediction2 = svm_model.predict(manual_transformed)
     
     # return the predicted output as a response
-    return render_template('dashboard.html', predict=prediction[0])
+    return render_template('dashboard.html', 
+                       lr_prediction=prediction1[0], 
+                       svm_prediction=prediction2[0])
+
+
 
 
 if __name__ == '__main__':

@@ -5,11 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='dashboard.css') }}">
-
 </head>
 <body>
     <div class="dashboard-container">
-        <h4>Predicted Output: {{ predict }}</h4>
+        <h1>Prediction Results</h1>
+        <div class="results">
+            <h4>Logistic Regression Prediction: <span>{{ lr_prediction }}</span></h4>
+            <h4>SVM Prediction: <span>{{ svm_prediction }}</span></h4>
+        </div>
     </div>
 </body>
 </html>

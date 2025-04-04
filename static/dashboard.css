@@ -59,3 +59,13 @@ h1 {
 .btn:hover {
     background: #5a67d8;
 }
+
+.results h4 {
+    margin: 10px 0;
+    font-size: 18px;
+}
+
+.results span {
+    color: #2d3748;
+    font-weight: bold;
+}
